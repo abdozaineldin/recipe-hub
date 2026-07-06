@@ -23,11 +23,7 @@ const Header = () => {
             <Logo />
 
             <div className="w-[30%]">
-              <Suspense
-                fallback={
-                  <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
-                }
-              >
+              <Suspense fallback={null}>
                 <SearchBar id="desktop" />
               </Suspense>
             </div>
@@ -52,11 +48,7 @@ const Header = () => {
             </div>
 
             <div className="w-[98%] mx-auto mt-4">
-              <Suspense
-                fallback={
-                  <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
-                }
-              >
+              <Suspense fallback={null}>
                 <SearchBar id="mobile" />
               </Suspense>
             </div>
