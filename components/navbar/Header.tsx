@@ -23,16 +23,13 @@ const Header = () => {
             <Logo />
 
             <div className="w-[30%]">
-              <div className="w-[30%]">
-                <Suspense
-                  fallback={
-                    <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
-                  }
-                >
-                  <SearchBar id="desktop" />
-                </Suspense>
-              </div>
-              {/* <SearchBar id="desktop" /> */}
+              <Suspense
+                fallback={
+                  <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
+                }
+              >
+                <SearchBar id="desktop" />
+              </Suspense>
             </div>
 
             <div className="flex gap-4">
@@ -55,15 +52,13 @@ const Header = () => {
             </div>
 
             <div className="w-[98%] mx-auto mt-4">
-              <div className="w-[98%] mx-auto mt-4">
-                <Suspense
-                  fallback={
-                    <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
-                  }
-                >
-                  <SearchBar id="mobile" />
-                </Suspense>
-              </div>
+              <Suspense
+                fallback={
+                  <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
+                }
+              >
+                <SearchBar id="mobile" />
+              </Suspense>
             </div>
 
             <AnimatePresence initial={false}>
