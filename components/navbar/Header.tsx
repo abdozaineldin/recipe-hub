@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Container from "../Container";
 import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
@@ -23,7 +23,16 @@ const Header = () => {
             <Logo />
 
             <div className="w-[30%]">
-              <SearchBar id="desktop" />
+              <div className="w-[30%]">
+                <Suspense
+                  fallback={
+                    <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
+                  }
+                >
+                  <SearchBar id="desktop" />
+                </Suspense>
+              </div>
+              {/* <SearchBar id="desktop" /> */}
             </div>
 
             <div className="flex gap-4">
@@ -46,7 +55,15 @@ const Header = () => {
             </div>
 
             <div className="w-[98%] mx-auto mt-4">
-              <SearchBar id="mobile" />
+              <div className="w-[98%] mx-auto mt-4">
+                <Suspense
+                  fallback={
+                    <div className="h-10 w-full rounded-md bg-muted animate-pulse" />
+                  }
+                >
+                  <SearchBar id="mobile" />
+                </Suspense>
+              </div>
             </div>
 
             <AnimatePresence initial={false}>
