@@ -1,17 +1,17 @@
 "use client";
 import { Search } from "lucide-react";
 import { Input } from "../ui/input";
-import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const SearchBar = ({ id }: { id: string }) => {
-  const [search, setSearch] = useState("");
+interface SearchBarProps {
+  id: string;
+  initialValue?: string;
+}
+
+const SearchBar = ({ id, initialValue = "" }: SearchBarProps) => {
+  const [search, setSearch] = useState(initialValue);
   const router = useRouter();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    setSearch(searchParams.get("q") ?? "");
-  }, [searchParams]);
 
   return (
     <form

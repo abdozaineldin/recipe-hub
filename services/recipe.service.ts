@@ -15,6 +15,11 @@ interface SearchResponse {
 export async function searchRecipes(search: string, page: number = 1) {
   const response = await fetch(
     `${BASE_URL}/recipes?search=${encodeURIComponent(search)}&page=${page}`,
+    {
+      next: {
+        revalidate: 3600,
+      },
+    },
   );
 
   if (!response.ok) {
@@ -38,7 +43,9 @@ interface RecipeDetailsResponse {
 }
 
 export async function getRecipeById(id: string) {
-  const response = await fetch(`${BASE_URL}/recipes/${id}`);
+  const response = await fetch(`${BASE_URL}/recipes/${id}`, {
+    next: { revalidate: 3600 },
+  });
   if (response.status === 404) {
     notFound();
   }

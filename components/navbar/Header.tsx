@@ -23,9 +23,7 @@ const Header = () => {
             <Logo />
 
             <div className="w-[30%]">
-              <Suspense fallback={null}>
-                <SearchBar id="desktop" />
-              </Suspense>
+              <SearchBar id="desktop" />
             </div>
 
             <div className="flex gap-4">
@@ -48,9 +46,7 @@ const Header = () => {
             </div>
 
             <div className="w-[98%] mx-auto mt-4">
-              <Suspense fallback={null}>
-                <SearchBar id="mobile" />
-              </Suspense>
+              <SearchBar id="mobile" />
             </div>
 
             <AnimatePresence initial={false}>
